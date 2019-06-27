@@ -3,6 +3,7 @@
 Halal bot
 """
 import os
+import discord
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix="?")
@@ -10,6 +11,9 @@ bot = commands.Bot(command_prefix="?")
 @bot.event
 async def on_ready():
     print("Bot running")
+
+    activity = discord.Activity(name="infidels", type=discord.ActivityType.watching)
+    await bot.change_presence(activity=activity)
 
 @bot.event
 async def on_message(message):
